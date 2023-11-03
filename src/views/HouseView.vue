@@ -7,7 +7,7 @@
         <th>Address</th>
       </tr>
       <tr v-for="house in houses">
-        <td>{{house.houseId}}</td>
+        <td>{{house.id}}</td>
         <td>{{house.address}}</td>
       </tr>
     </table>
