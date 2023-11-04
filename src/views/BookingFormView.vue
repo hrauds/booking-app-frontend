@@ -50,7 +50,7 @@ const fetchHouses = async () => {
 const fetchServices = async () => {
   if (selectedHouse.value) {
     try {
-      const response = await axios.get("/api/service/byHouseId/${selectedHouse.value}");
+      const response = await axios.get(`/api/service/byHouseId/${selectedHouse.value}`);
       services.value = response.data;
     } catch (error) {
       console.error("Error fetching services:", error);

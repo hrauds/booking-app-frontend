@@ -40,7 +40,7 @@ const customer = ref({
 
 const submitCustomer = async () => {
   try {
-    const response = await axios.post("/api/customer", customer.value);
+    const response = await axios.post(`/api/customer`, customer.value);
     console.log("Customer created", response.data);
   } catch (error) {
     console.error("Error creating customer", error);
