@@ -1,7 +1,7 @@
 <template>
   <div class="signup">
     <h1>Create new account</h1>
-    <form @submit.prevent="submitCustomer">
+    <form @submit.prevent="submitCustomer" class="form">
       <div class="form-group">
         <label for="name">First Name:</label>
         <input type="text" v-model="customer.firstName" required>
@@ -51,10 +51,30 @@ const submitCustomer = async () => {
 <style>
 @media (min-width: 1024px) {
   .signup {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+  }
+  .form {
+    width: 300px;
+    margin: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
   }
 }
 </style>
