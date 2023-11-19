@@ -1,0 +1,26 @@
+stages:
+  - build
+  - deploy
+
+build iti0302-2023-frontend:
+  stage: build
+  only:
+    refs:
+      - main
+  tags:
+    - main
+
+  script:
+    - docker build -t iti0302-2023-frontend .
+
+deploy iti0302-2023-backend:
+  stage: deploy
+  only:
+    refs:
+      - main
+  tags:
+    - main
+  script:
+    - cd /opt/iti0302
+    - docker-compose down
+    - docker-compose up -d
