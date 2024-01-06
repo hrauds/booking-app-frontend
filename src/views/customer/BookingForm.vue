@@ -27,7 +27,7 @@
         <label for="time">Select Time:</label>
         <select v-model="selectedTime" required>
           <option value="">Select</option>
-          <option v-for="time in availableTimes" :key="time.id" :value="time.id">
+          <option v-for="time in availableTimes" :key="time.id" :value="time">
             {{ time.startTime}} - {{ time.endTime }}
             ({{ time.resourceName }})
           </option>
@@ -142,23 +142,20 @@ const submitBooking = async () => {
     try {
       const customerResponse = await addCustomer();
 
-      const bookingPayload = {
-        resourceId: selectedTime.resourceId,
-        date: selectedDate,
-        startTime: selectedTime.startTime,
-        endTime: selectedTime.endTime,
+      const bookingData = {
+        resourceId: selectedTime.value.resourceId,
+        date: selectedDate.value,
+        startTime: selectedTime.value.startTime,
+        endTime: selectedTime.value.endTime,
         customerId: customerResponse.id,
       };
-
-      // Log the booking payload before making the axios request
-      console.log("Booking payload:", bookingPayload);
-
-      const bookingResponse = await axios.post('/api/open/booking', bookingPayload);
+      const queryParams = new URLSearchParams(bookingData);
+      const bookingResponse = await axios.post(`/api/open/booking?${queryParams}`);
 
       console.log("Booking submitted successfully:", bookingResponse);
 
-      await axios.delete(`/api/open/bookable/${selectedTime.id}`);
-      console.log("Bookable deleted:", bookingResponse.data);
+      await axios.delete(`/api/open/bookable/${selectedTime.value.id}`);
+      console.log("Bookable deleted");
       await router.push("/booking-submitted");
 
     } catch (error) {
@@ -172,14 +169,12 @@ const submitBooking = async () => {
 
 </script>
 
-
 <style scoped>
 .booking {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 5px;
 }
 
 form {
@@ -195,10 +190,11 @@ form {
 h1 {
   text-align: center;
   color: #63e099;
+  margin-bottom: 1rem;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 7px;
 }
 
 label {

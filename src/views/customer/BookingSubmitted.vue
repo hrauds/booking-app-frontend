@@ -7,9 +7,8 @@
 <script setup>
 </script>
 
-<style>
+<style scoped>
 .booking-submitted {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,8 +16,8 @@
 }
 
 h1 {
+  margin-top: 10rem;
   text-align: center;
-  color: #333;
+  color: #fcf9f9;
 }
-
 </style>
