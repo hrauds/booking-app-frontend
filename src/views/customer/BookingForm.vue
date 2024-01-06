@@ -1,6 +1,6 @@
 <template>
   <div class="booking">
-    <h1>Booking Form</h1>
+    <h2>Booking Form</h2>
     <form @submit.prevent="submitBooking">
       <div class="form-group">
         <label for="house">Select House:</label>
@@ -187,9 +187,8 @@ form {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+h2 {
   text-align: center;
-  color: #63e099;
   margin-bottom: 1rem;
 }
 
@@ -225,4 +224,5 @@ button {
 button:hover {
   background-color: #2aa491;
 }
+
 </style>

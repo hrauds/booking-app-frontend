@@ -1,7 +1,9 @@
 <template>
-  <TopMenu />
+  <div class="header">
+    <Header />
+  </div>
   <div class="login">
-    <h1>Login</h1>
+    <h2>Login</h2>
     <form @submit.prevent="submitLogin" class="form">
       <div class="form-group">
         <label for="email">Email:</label>
@@ -14,7 +16,6 @@
       </div>
     </form>
     <button type="submit" @click="submitLogin">Login</button>
-
   </div>
 </template>
 
@@ -22,7 +23,7 @@
 import axios from "axios";
 import { ref } from "vue";
 import router from "@/router";
-import TopMenu from "@/components/TopMenu.vue";
+import Header from "@/components/Header.vue";
 
 const loginData = ref({
   email: "",
@@ -49,10 +50,12 @@ const submitLogin = async () => {
 <style scoped>
 @media (min-width: 1024px) {
   .login {
+    margin-top: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
   .form {
     width: 300px;
     margin: 20px;
@@ -61,6 +64,7 @@ const submitLogin = async () => {
   .form-group {
     margin-bottom: 15px;
   }
+
   label {
     display: block;
     margin-bottom: 5px;
@@ -75,14 +79,16 @@ const submitLogin = async () => {
   }
 
   button {
-    font-size: 1.2em;
-    padding: 0.5em 1em;
+    background-color: #148c82;
+    color: #ffffff;
+    padding: 10px 20px;
     border: none;
-    border-radius: 15px;
-    background-color: palegreen;
+    border-radius: 4px;
     cursor: pointer;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+  }
+
+  button:hover {
+    background-color: #2aa491;
   }
 }
 </style>
