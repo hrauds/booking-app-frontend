@@ -31,12 +31,6 @@ const router = createRouter({
       component: Home,
     },
     {
-      path: '/houses/:id',
-      name: 'services',
-      beforeEnter: requireAuth,
-      component: Home,
-    },
-    {
       path: '/add-house',
       name: 'add-house',
       beforeEnter: requireAuth,

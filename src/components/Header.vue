@@ -44,11 +44,7 @@ export default {
 
 <style scoped>
 .menu {
-  padding: 1rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10rem;
 }
 
 .menu-title h1 {
@@ -64,16 +60,15 @@ export default {
 }
 
 button {
-  font-size: 1rem;
-  padding: 0.5em 1em;
+  background-color: #148c82;
+  color: #ffffff;
+  padding: 10px 20px;
   border: none;
-  border-radius: 15px;
-  background-color: palegreen;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-.logout-btn {
-  background-color: #ff968e;
-  color: #ffffff;
+button:hover {
+  background-color: #2aa491;
 }
 </style>
