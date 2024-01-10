@@ -3,22 +3,12 @@
     <div class="header">
       <Header />
     </div>
-    <div class="content-container">
-      <div class="house-menu">
-        <ul>
-          <li v-for="(house, index) in houses" :key="index" @click="selectHouse(index)" :class="{ active: isActive(index) }">
-            {{ house.address }}
-          </li>
-        </ul>
-        <div class="add-house-button">
-          <router-link to="/add-house">
-            <button>Add house</button>
-          </router-link>
-        </div>
+    <div class="main-content">
+      <div class="navigation">
+        <router-link to="/home">Bookings</router-link>
+        <router-link to="/houses">Manage Houses</router-link>
       </div>
-      <div class="main-content">
-        <Bookings :selectedHouse="selectedHouse" />
-      </div>
+      <Bookings />
     </div>
   </div>
 </template>
@@ -26,32 +16,6 @@
 <script setup>
 import Header from "@/components/Header.vue";
 import Bookings from "@/views/Bookings.vue";
-import axios from 'axios';
-import { onMounted, ref, watch } from 'vue';
-
-const houses = ref([]);
-const selectedHouse = ref(0); // Set default selected house index
-
-const isActive = (index) => {
-  return selectedHouse.value === index;
-};
-
-const selectHouse = (index) => {
-  selectedHouse.value = index;
-};
-
-onMounted(async () => {
-  try {
-    const response = await axios.get('/api/open/house');
-    houses.value = response.data;
-  } catch (error) {
-    console.error('Error fetching houses:', error);
-  }
-});
-
-watch(() => selectedHouse, (newIndex) => {
-  console.log('Selected house changed to:', houses.value[newIndex].address);
-});
 </script>
 
 <style scoped>
@@ -61,44 +25,28 @@ watch(() => selectedHouse, (newIndex) => {
   height: 100vh;
 }
 
-.content-container {
-  display: flex;
-  flex: 1;
-}
-
 .main-content {
-  margin-top: 4rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   margin-left: 7rem;
 }
 
-.house-menu {
-  margin-top: 4rem;
-  width: 200px;
+.navigation {
+  display: flex;
   color: white;
+  margin-bottom: 2rem;
 }
 
-.house-menu ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+.navigation a {
+  color: white;
+  padding: 20px 40px;
+  margin-right: 10px;
 }
 
-.house-menu li {
-  margin-bottom: 10px;
-  cursor: pointer;
-  border-radius: 10px;
-  padding: 12px;
-}
-
-.house-menu .active {
-  background-color: #59a4ff;
-  color: #fff;
-}
-
-.add-house-button {
-  margin-top: 4rem;
+.navigation a:hover {
+  background-color: #555;
+  border-radius: 5px;
 }
 
 button {
