@@ -4,7 +4,6 @@
       <h1>Game Time Booking Management</h1>
     </div>
     <div class="menu-login" v-if="isLoggedIn">
-
       <button @click="handleLogout" class="logout-btn">Log Out</button>
     </div>
   </div>
