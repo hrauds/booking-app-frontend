@@ -13,8 +13,7 @@ and functionality of the project described in the readme on the server side also
 ### Technologies Used
 
 - vue.js
-- Axious
-- Vuetify
+- Axios
 
 ### Setup
 
