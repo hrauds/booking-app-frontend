@@ -1,29 +1,36 @@
-# iti0302-2023-frontend
+# Game Time Booking Application
 
-This template should help get you started developing with Vue 3 in Vite.
+## Introduction
 
-## Recommended IDE Setup
+All parts of the application, both backend and frontend, work together and therefore the description of the capabilities
+and functionality of the project described in the readme on the server side also applies here.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+### Authors
 
-## Customize configuration
+- Hanna Raudsepp (hrauds@taltech.ee)
+- Ignat Jasevits (igjase@taltech.ee)
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+### Technologies Used
 
-## Project Setup
+- vue.js
+- Axious
+- Vuetify
 
+### Setup
+
+Clone the repository:
+`git clone https://gitlab.cs.taltech.ee/hrauds/iti0302-2023-frontend.git`
+
+Navigate to the project directory:
+`cd [project folder]`
+
+Install the dependencies:
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
 
+Set up the development environment:
 ```sh
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
 ```
