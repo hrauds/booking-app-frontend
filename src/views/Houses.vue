@@ -26,7 +26,6 @@
 
         <div class="options-menu">
           <h3>Options</h3>
-          <router-link :to="{ name: 'add-time', params: { houseId: selectedHouse } }">Add Booking Time</router-link>
         </div>
       </div>
     </div>

@@ -6,7 +6,6 @@ import AddHouse from "@/views/AddHouse.vue";
 import BookingForm from "@/views/customer/BookingForm.vue";
 import BookingSubmitted from "@/views/customer/BookingSubmitted.vue";
 import Houses from "@/views/Houses.vue";
-import AddTime from "@/views/AddTime.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -43,12 +42,6 @@ const router = createRouter({
       name: 'add-house',
       beforeEnter: requireAuth,
       component: AddHouse,
-    },
-    {
-      path: '/add-time/:houseId',
-      name: 'add-time',
-      beforeEnter: requireAuth,
-      component: AddTime,
     },
   ]
 })
